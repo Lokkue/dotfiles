@@ -1,0 +1,54 @@
+[general]
+
+theme = "dark"
+default_path = "~"
+auto_save_config = true
+
+[manager]
+show_hidden = true
+
+[search]
+case_sensitive = false
+
+[sorting]
+sort_by = "name"
+reverse_sort = false
+[plugins]
+
+enabled_plugins = ["git","archive"]
+
+
+[opener]
+edit = [
+    { run = "nvim $@", block = true, desc = "Neovim" }
+]
+image = [
+    { run = "gwenview $@", block = true, desc = "Gwenview" },
+    { run = "feh $@", block = true, desc = "Feh" }
+]
+terminal = [
+    { run = 'wezterm start --cwd  "$@"', block = false, desc = "Open in Wezterm"},
+    { run = 'konsole --worddir "$@"', block = true, desc = "Open in Konsole"}
+]
+codium = [
+    { run = 'codium "$@"', block = true, desc = "Open in VSCodium" }
+]
+# 2. 定义文件打开规则（匹配文件类型）
+[open]
+rules = [
+    { mime = "text/*", use = "edit" },      # 文本用 nvim
+    { mime = "image/*", use = "image" },# 图片用 Gwenview/Feh
+    { mime = "*/", use = ["terminal", "codium"] },
+    { mime = "inode/x-empty", use = ["edit","terminal"] },
+]
+[icons]
+git = true
+git_icons = [
+    { status = "unmodified", icon = " " },
+    { status = "modified", icon = "✱" },
+    { status = "new", icon = "＋" },
+    { status = "deleted", icon = "✖" },
+    { status = "renamed", icon = "➜" }
+]
+
+

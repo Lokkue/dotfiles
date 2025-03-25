@@ -1,0 +1,38 @@
+# 选择 Catppuccin 风格
+[flavor]
+dark = "catppuccin-mocha"    # 深色模式用 mocha
+light = "catppuccin-latte"   # 浅色模式用 latte
+
+# 文件类型颜色规则
+[filetype]
+rules = [
+    # 目录显示蓝色
+    { name = "*/", fg = "blue" },
+    
+    # 媒体文件特殊颜色
+    { mime = "image/*", fg = "yellow" },
+    { mime = "video/*", fg = "magenta" },
+    { mime = "audio/*", fg = "magenta" },
+    
+    # 损坏的符号链接显示红色
+    { name = "*", is = "orphan", fg = "red" },
+    
+    # 默认文件显示白色
+    { name = "*", fg = "white" }
+]
+
+# 自定义图标 (需 Nerd Font 支持)
+[icon]
+exts = [
+    # MP3 文件
+    { name = "mp3", text = "", fg = "#00afff" },
+    
+    # ZIP 压缩包
+    { name = "zip", text = "", fg = "#e4a672" }
+]
+
+dirs = [
+    # Downloads 目录特殊图标
+    { name = "Downloads", text = "", fg = "#89b4fa" }
+]
+
